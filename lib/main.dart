@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_friends_soccer/pages/login/login_page.dart';
+import 'package:mobile_friends_soccer/pages/welcome/welcome.dart';
 import 'package:mobile_friends_soccer/stores/auth_store.dart';
 
 void main() {
@@ -20,11 +21,16 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: '/login',
-          page: () => const LoginPage(),
+          page: () => LoginPage(),
         ),
+        GetPage(
+          name: "/welcome",
+          page: () => const WelcomePage(),
+        )
       ],
-      initialRoute: '/login',
+      initialRoute: '/welcome',
       theme: ThemeData(
+        primarySwatch: Colors.orange,
         brightness: Brightness.dark,
         primaryColor: Colors.yellow[900],
         scaffoldBackgroundColor: Colors.black,
@@ -72,7 +78,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const LoginPage(),
+      home: LoginPage(),
     );
   }
 }
