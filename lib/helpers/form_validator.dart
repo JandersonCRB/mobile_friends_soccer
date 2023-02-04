@@ -10,11 +10,11 @@ class FormValidator {
   FormValidator email() {
     fnList.add((String? value) {
       if (value == null || value.isEmpty) {
-        return 'Email is required';
+        return 'Este campo é obrigatório';
       }
       if (!RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
           .hasMatch(value)) {
-        return 'Email is invalid';
+        return 'Email inválido';
       }
       return null;
     });
@@ -24,7 +24,7 @@ class FormValidator {
   FormValidator required() {
     fnList.add((String? value) {
       if (value == null || value.isEmpty) {
-        return 'This field is required';
+        return 'Este campo é obrigatório';
       }
       return null;
     });
@@ -34,10 +34,10 @@ class FormValidator {
   FormValidator minLength(int length) {
     fnList.add((String? value) {
       if (value == null || value.isEmpty) {
-        return 'This field is required';
+        return 'Este campo é obrigatório';
       }
       if (value.length < length) {
-        return 'This field must have at least $length characters';
+        return 'Este campo deve ter pelo menos $length caracteres';
       }
       return null;
     });
@@ -47,10 +47,10 @@ class FormValidator {
   FormValidator maxLength(int length) {
     fnList.add((String? value) {
       if (value == null || value.isEmpty) {
-        return 'This field is required';
+        return 'Este campo é obrigatório';
       }
       if (value.length > length) {
-        return 'This field must have at most $length characters';
+        return 'Este campo deve ter no máximo $length caracteres';
       }
       return null;
     });
@@ -60,11 +60,11 @@ class FormValidator {
   FormValidator password() {
     fnList.add((String? value) {
       if (value == null || value.isEmpty) {
-        return 'Password is required';
+        return 'Este campo é obrigatório';
       }
       if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$')
           .hasMatch(value)) {
-        return 'Password is invalid';
+        return 'Senha inválida';
       }
       return null;
     });

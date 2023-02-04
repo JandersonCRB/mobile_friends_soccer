@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 
 import '../models/user.dart';
-import '../services/api.dart';
 
 class AuthStore extends GetxController {
   var token = Rxn<String?>(null);

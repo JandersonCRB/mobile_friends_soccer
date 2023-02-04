@@ -49,7 +49,9 @@ class WelcomePage extends StatelessWidget {
                     const SizedBox(height: 26),
                     GFOutlinedButton(
                       text: "Cadastre-se",
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed("/cadastro");
+                      },
                     ),
                   ],
                 ),

@@ -2,9 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_friends_soccer/pages/forgot_password/forgot_password.dart';
+import 'package:mobile_friends_soccer/pages/home/home.dart';
 import 'package:mobile_friends_soccer/pages/login/login_page.dart';
 import 'package:mobile_friends_soccer/pages/welcome/welcome.dart';
 import 'package:mobile_friends_soccer/stores/auth_store.dart';
+
+import 'pages/sign_up/sign_up.dart';
 
 void main() {
   Get.put(AuthStore());
@@ -21,12 +25,24 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: '/login',
-          page: () => LoginPage(),
+          page: () => const LoginPage(),
         ),
         GetPage(
           name: "/welcome",
           page: () => const WelcomePage(),
-        )
+        ),
+        GetPage(
+          name: "/home",
+          page: () => const HomePage(),
+        ),
+        GetPage(
+          name: "/cadastro",
+          page: () => const SignUpPage(),
+        ),
+        GetPage(
+          name: "/esqueceu-senha",
+          page: () => const ForgotPasswordPage(),
+        ),
       ],
       initialRoute: '/welcome',
       theme: ThemeData(
@@ -78,7 +94,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: LoginPage(),
     );
   }
 }
