@@ -8,4 +8,14 @@ class AuthService {
         .post("api/v1/login", data: {'email': email, 'password': password});
     return LoginDto.fromJson(response.data);
   }
+
+  static Future<void> forgotPassword(String email) async {
+    try {
+      await api.post("/api/v1/forgot_password", data: {
+        "email": email,
+      });
+    } catch (error) {
+      rethrow;
+    }
+  }
 }

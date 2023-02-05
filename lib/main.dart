@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: "/esqueceu-senha",
-          page: () => const ForgotPasswordPage(),
+          page: () =>  ForgotPasswordPage(),
         ),
       ],
       initialRoute: '/welcome',
