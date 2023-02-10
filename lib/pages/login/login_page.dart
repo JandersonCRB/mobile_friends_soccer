@@ -28,103 +28,108 @@ class _LoginPageState extends State<LoginPage> {
             child: Container(
               height: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Login",
-                      textAlign: TextAlign.left,
-                      style: GoogleFonts.inter(
-                        fontWeight: FontWeight.w800,
-                        fontSize: 32,
-                        color: const Color(0xFFDD8330),
+              child: Center(
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "Login",
+                          textAlign: TextAlign.left,
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w800,
+                            fontSize: 32,
+                            color: const Color(0xFFDD8330),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  const SizedBox(height: 48),
-                  Form(
-                    key: _loginController.formKey,
-                    child: Column(
-                      children: [
-                        TextFormField(
-                          decoration: const LightUnderlinedInputDecoration(
-                            labelText: "Email",
-                          ),
-                          validator: FormValidator().email().build(),
-                          onSaved: (value) {
-                            _loginController.email = value;
-                          },
-                        ),
-                        const SizedBox(height: 24),
-                        TextFormField(
-                          decoration: const LightUnderlinedInputDecoration(
-                            labelText: "Senha",
-                          ),
-                          obscureText: true,
-                          validator: FormValidator().required().build(),
-                          onSaved: (value) {
-                            _loginController.password = value;
-                          },
-                        ),
-                        const SizedBox(height: 8),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: InkWell(
-                            onTap: () {
-                              Get.toNamed("/esqueceu-senha");
-                            },
-                            child: Text(
-                              "Esqueceu a senha?",
-                              style: GoogleFonts.inter(
-                                color: const Color(0xFFD8DDDE),
-                                fontWeight: FontWeight.w600,
-                                fontSize: 10,
+                      const SizedBox(height: 48),
+                      Form(
+                        key: _loginController.formKey,
+                        child: Column(
+                          children: [
+                            TextFormField(
+                              decoration: const LightUnderlinedInputDecoration(
+                                labelText: "Email",
                               ),
+                              validator: FormValidator().email().build(),
+                              onSaved: (value) {
+                                _loginController.email = value;
+                              },
                             ),
-                          ),
-                        ),
-                        const SizedBox(height: 48),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 40),
-                          child: GFOutlinedButton(
-                            text: "Entrar",
-                            onPressed: _loginController.submitForm,
-                            filled: true,
-                          ),
-                        ),
-                        const SizedBox(height: 48),
-                        TextButton(
-                          onPressed: () {
-                            Get.offNamed("/cadastro");
-                          },
-                          child: RichText(
-                            text: TextSpan(
-                              text: "Ainda não possui uma conta? ",
-                              style: GoogleFonts.inter(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                                color: const Color(0xFF97ABB1),
+                            const SizedBox(height: 24),
+                            TextFormField(
+                              decoration: const LightUnderlinedInputDecoration(
+                                labelText: "Senha",
                               ),
-                              children: [
-                                TextSpan(
-                                  text: "Cadastre-se",
+                              obscureText: true,
+                              validator: FormValidator().required().build(),
+                              onSaved: (value) {
+                                _loginController.password = value;
+                              },
+                            ),
+                            const SizedBox(height: 8),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: InkWell(
+                                onTap: () {
+                                  Get.toNamed("/esqueceu-senha");
+                                },
+                                child: Text(
+                                  "Esqueceu a senha?",
                                   style: GoogleFonts.inter(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 12,
-                                    color: const Color(0xFFDD8330),
+                                    color: const Color(0xFFD8DDDE),
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 10,
                                   ),
-                                )
-                              ],
+                                ),
+                              ),
                             ),
-                          ),
+                            const SizedBox(height: 48),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 40),
+                              child: GFOutlinedButton(
+                                text: "Entrar",
+                                onPressed: _loginController.submitForm,
+                                filled: true,
+                              ),
+                            ),
+                            const SizedBox(height: 48),
+                            TextButton(
+                              onPressed: () {
+                                Get.offNamed("/cadastro");
+                              },
+                              child: RichText(
+                                text: TextSpan(
+                                  text: "Ainda não possui uma conta? ",
+                                  style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 12,
+                                    color: const Color(0xFF97ABB1),
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                      text: "Cadastre-se",
+                                      style: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 12,
+                                        color: const Color(0xFFDD8330),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  )
-                ],
+                      )
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
