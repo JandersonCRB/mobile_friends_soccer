@@ -1,6 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_friends_soccer/services/auth_service.dart';
+import 'package:mobile_friends_soccer/stores/auth_store.dart';
 
 class SignUpController extends GetxController {
   var formKey = GlobalKey<FormState>();
@@ -17,19 +20,23 @@ class SignUpController extends GetxController {
       print(email);
       print(password);
     }
-    // loading.value = true;
-    // try {
-    //   final loginResponse = await AuthService.login(email!, password!);
-    //   AuthStore authStore = Get.find();
-    //   authStore.setLoggedIn(loginResponse.token!, loginResponse.user!);
-    //
-    //   Get.snackbar('Success', 'Login com sucesso');
-    //   Get.offAllNamed('/home');
-    // } on DioError {
-    //   Get.snackbar('Error', 'Email ou senha incorretos');
-    // } finally {
-    //   loading.value = false;
-    // }
+    loading.value = true;
+    try {
+      final loginResponse = await AuthService.signUp(
+          firstName: firstName!,
+          lastName: lastName!,
+          email: email!,
+          password: password!);
+      AuthStore authStore = Get.find();
+      authStore.setLoggedIn(loginResponse.token!, loginResponse.user!);
+
+      Get.snackbar('Success', 'Login com sucesso');
+      Get.offAllNamed('/home');
+    } on DioError {
+      Get.snackbar('Error', 'Email ou senha incorretos');
+    } finally {
+      loading.value = false;
+    }
   }
 
   void submitForm() async {
