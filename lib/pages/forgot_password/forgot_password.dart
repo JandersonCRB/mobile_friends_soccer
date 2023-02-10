@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_friends_soccer/components/auth_background.dart';
+import 'package:mobile_friends_soccer/components/backbutton_overlay.dart';
 import 'package:mobile_friends_soccer/components/gf_outlined_button.dart';
 import 'package:mobile_friends_soccer/components/light_underlined_input_decoration.dart';
 import 'package:mobile_friends_soccer/helpers/form_validator.dart';
@@ -20,43 +21,60 @@ class ForgotPasswordPage extends StatelessWidget {
       body: Stack(
         children: [
           const AuthBackground(),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 64),
-            child: Form(
-              key: forgotPasswordController.formKey,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    "Esqueceu a senha?",
-                    style: GoogleFonts.inter(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
+          SafeArea(
+            child: Container(
+              height: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 64),
+              child: Center(
+                child: SingleChildScrollView(
+                  child: Form(
+                    key: forgotPasswordController.formKey,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Redefinir senha",
+                            textAlign: TextAlign.left,
+                            style: GoogleFonts.inter(
+                              fontWeight: FontWeight.w800,
+                              fontSize: 32,
+                              color: const Color(0xFFDD8330),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 24),
+                        TextFormField(
+                          decoration: const LightUnderlinedInputDecoration(
+                            labelText: "Email",
+                          ),
+                          validator: FormValidator().email().build(),
+                          onSaved: (email) {
+                            forgotPasswordController.email = email;
+                          },
+                        ),
+                        const SizedBox(height: 48),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 40),
+                          child: GFOutlinedButton(
+                            text: "Confirmar email",
+                            onPressed: forgotPasswordController.submitForm,
+                            filled: true,
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 40,
+                        )
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 24),
-                  TextFormField(
-                    decoration: const LightUnderlinedInputDecoration(
-                      labelText: "Email",
-                    ),
-                    validator: FormValidator().email().build(),
-                    onSaved: (email) {
-                      forgotPasswordController.email = email;
-                    },
-                  ),
-                  const SizedBox(height: 48),
-                  GFOutlinedButton(
-                    text: "Redefinir senha",
-                    onPressed: forgotPasswordController.submitForm,
-                    filled: true,
-                  ),
-                  const SizedBox(
-                    height: 40,
-                  )
-                ],
+                ),
               ),
             ),
           ),
+          const BackButtonOverlay(),
         ],
       ),
     );

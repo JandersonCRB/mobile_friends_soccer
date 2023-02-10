@@ -15,9 +15,9 @@ class BackButtonOverlay extends StatelessWidget {
               Get.back();
             },
             style: ElevatedButton.styleFrom(
-              shadowColor: Colors.transparent,
+              // shadowColor: Colors.transparent,
               backgroundColor: const Color(0xFF33343D),
-              elevation: 6,
+              elevation: 8,
               shape: const CircleBorder(),
             ),
             child: const Icon(
