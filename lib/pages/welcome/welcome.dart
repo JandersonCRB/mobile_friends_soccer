@@ -17,7 +17,7 @@ class WelcomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                "Bem vindo(a) ao\n Gols em Família!",
+                "Bem vindo(a) ao Família em Campo!",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.inter(
                   fontWeight: FontWeight.w800,
@@ -26,7 +26,7 @@ class WelcomePage extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               Text(
-                "Família em campo! Onde a sua paixão \npelo futebol encontra o conforto do lar!",
+                "Onde a sua paixão pelo futebol\n encontra o conforto do lar!",
                 textAlign: TextAlign.center,
                 style: GoogleFonts.inter(
                   fontSize: 15,
