@@ -37,11 +37,11 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: "/cadastro",
-          page: () => const SignUpPage(),
+          page: () => SignUpPage(),
         ),
         GetPage(
           name: "/esqueceu-senha",
-          page: () =>  ForgotPasswordPage(),
+          page: () => ForgotPasswordPage(),
         ),
       ],
       initialRoute: '/welcome',

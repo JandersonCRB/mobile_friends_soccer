@@ -37,7 +37,7 @@ class FormValidator {
         return 'Este campo é obrigatório';
       }
       if (value.length < length) {
-        return 'Este campo deve ter pelo menos $length caracteres';
+        return 'Mínimo de $length caracteres';
       }
       return null;
     });
@@ -50,7 +50,7 @@ class FormValidator {
         return 'Este campo é obrigatório';
       }
       if (value.length > length) {
-        return 'Este campo deve ter no máximo $length caracteres';
+        return 'Máximo de $length caracteres';
       }
       return null;
     });

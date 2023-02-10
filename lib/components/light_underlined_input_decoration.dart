@@ -4,6 +4,7 @@ class LightUnderlinedInputDecoration extends InputDecoration {
   const LightUnderlinedInputDecoration({
     String? labelText,
     String? hintText,
+    String? helperText,
     Widget? prefixIcon,
     Widget? suffixIcon,
     bool filled = false,
@@ -16,6 +17,7 @@ class LightUnderlinedInputDecoration extends InputDecoration {
           suffixIcon: suffixIcon,
           filled: filled,
           enabled: enabled,
+          helperText: helperText,
           labelStyle: const TextStyle(
             color: Colors.white70,
             fontSize: 14,
@@ -38,7 +40,7 @@ class LightUnderlinedInputDecoration extends InputDecoration {
           ),
           errorBorder: const UnderlineInputBorder(
             borderSide: BorderSide(
-              color: Color(0xFFE6862E),
+              color: Colors.red,
               width: 1,
             ),
           ),

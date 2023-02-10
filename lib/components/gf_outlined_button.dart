@@ -4,11 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 class GFOutlinedButton extends StatelessWidget {
   final String text;
   final bool filled;
+  final bool disabled;
   final VoidCallback onPressed;
 
   const GFOutlinedButton({
     Key? key,
     required this.text,
+    this.disabled = false,
     this.filled = false,
     required this.onPressed,
   }) : super(key: key);
@@ -23,7 +25,7 @@ class GFOutlinedButton extends StatelessWidget {
       width: double.infinity,
       height: 46,
       child: OutlinedButton(
-        onPressed: onPressed,
+        onPressed: disabled ? null : onPressed,
         style: OutlinedButton.styleFrom(
           backgroundColor: backgroundColor,
           side: const BorderSide(
