@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_friends_soccer/components/auth_background.dart';
 import 'package:mobile_friends_soccer/components/gf_outlined_button.dart';
 import 'package:mobile_friends_soccer/components/light_underlined_input_decoration.dart';
 import 'package:mobile_friends_soccer/helpers/form_validator.dart';
+
 import '../../components/backbutton_overlay.dart';
-import '../welcome/welcome_background.dart';
 import 'login_controller.dart';
 
 class LoginPage extends StatefulWidget {
@@ -23,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Stack(
         children: [
-          const WelcomeBackground(),
+          const AuthBackground(),
           SafeArea(
             child: Container(
               height: double.infinity,

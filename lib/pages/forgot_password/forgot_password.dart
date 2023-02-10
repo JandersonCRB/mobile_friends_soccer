@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_friends_soccer/components/auth_background.dart';
 import 'package:mobile_friends_soccer/components/gf_outlined_button.dart';
 import 'package:mobile_friends_soccer/components/light_underlined_input_decoration.dart';
 import 'package:mobile_friends_soccer/helpers/form_validator.dart';
 
-import '../welcome/welcome_background.dart';
 import 'forgot_password_controller.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
@@ -19,7 +19,7 @@ class ForgotPasswordPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const WelcomeBackground(),
+          const AuthBackground(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 64),
             child: Form(
