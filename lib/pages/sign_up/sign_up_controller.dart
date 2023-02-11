@@ -30,7 +30,7 @@ class SignUpController extends GetxController {
       AuthStore authStore = Get.find();
       authStore.setLoggedIn(loginResponse.token!, loginResponse.user!);
 
-      Get.snackbar('Success', 'Login com sucesso');
+      Get.snackbar('Success', 'Cadastro completo!');
       Get.offAllNamed('/home');
     } on DioError {
       Get.snackbar('Error', 'Email ou senha incorretos');
