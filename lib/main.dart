@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_friends_soccer/pages/forgot_password/forgot_password.dart';
 import 'package:mobile_friends_soccer/pages/home/home.dart';
+import 'package:mobile_friends_soccer/pages/home/home_controller.dart';
 import 'package:mobile_friends_soccer/pages/login/login_page.dart';
 import 'package:mobile_friends_soccer/pages/welcome/welcome.dart';
 import 'package:mobile_friends_soccer/stores/auth_store.dart';
@@ -33,6 +34,9 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: "/home",
+          binding: BindingsBuilder(() {
+            Get.lazyPut<HomeController>(() => HomeController());
+          }),
           page: () => const HomePage(),
         ),
         GetPage(
