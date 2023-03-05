@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_friends_soccer/pages/add/add.dart';
 import 'package:mobile_friends_soccer/pages/home/home_controller.dart';
-import 'package:mobile_friends_soccer/pages/initial/initial.dart';
 import 'package:mobile_friends_soccer/pages/profile/profile.dart';
 import 'package:mobile_friends_soccer/pages/statistics/statistics.dart';
+
+import '../championships_list/championships_list.dart';
 
 class HomeRouter extends StatelessWidget {
   const HomeRouter({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class HomeRouter extends StatelessWidget {
     return Obx(() {
       switch (homeController.currentPage.value) {
         case HomeControllerPage.home:
-          return const InitialPage();
+          return const ChampionshipListPage();
         case HomeControllerPage.add:
           return const AddPage();
         case HomeControllerPage.statistics:

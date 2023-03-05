@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_friends_soccer/pages/championships_list/championships_list_controller.dart';
 import 'package:mobile_friends_soccer/pages/forgot_password/forgot_password.dart';
 import 'package:mobile_friends_soccer/pages/home/home.dart';
 import 'package:mobile_friends_soccer/pages/home/home_controller.dart';
@@ -36,6 +37,8 @@ class MyApp extends StatelessWidget {
           name: "/home",
           binding: BindingsBuilder(() {
             Get.lazyPut<HomeController>(() => HomeController());
+            Get.lazyPut<ChampionshipListController>(
+                () => ChampionshipListController());
           }),
           page: () => const HomePage(),
         ),

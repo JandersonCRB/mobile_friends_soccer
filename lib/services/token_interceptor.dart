@@ -8,7 +8,7 @@ class TokenInterceptor extends Interceptor {
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     AuthStore authStore = Get.find();
     if (authStore.isLogged.value!) {
-      options.headers['Authorization'] = 'Bearer ${authStore.token.value}';
+      options.headers['Authorization'] = '${authStore.token.value}';
     }
     return super.onRequest(options, handler);
   }
